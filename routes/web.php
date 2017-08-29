@@ -22,6 +22,10 @@
 */
 Route::get('/','Home\StaticPagesController@index')->name('index');
 
+Route::get('login','Home\SessionsController@create')->name('login');
+Route::post('login','Home\SessionsController@store')->name('login');
+Route::delete('logout','Home\SessionsController@destroy')->name('logout');
+
 
 
 /*
