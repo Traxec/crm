@@ -11,6 +11,22 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+/*
+|--------------------------------------------------------------------------
+| Home Routes
+|--------------------------------------------------------------------------
+*/
+Route::get('/','Home\StaticPagesController@index')->name('index');
+
+
+
+/*
+|--------------------------------------------------------------------------
+| Admin Routes
+|--------------------------------------------------------------------------
+*/
+Route::get('/admin','Admin\StaticPagesController@index')->name('admin.index');
