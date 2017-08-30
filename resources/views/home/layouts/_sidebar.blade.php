@@ -3,11 +3,19 @@
   <div class="menu_section">
     <h3>General</h3>
     <ul class="nav side-menu">
-      <li><a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
+      <li><a href="{{route('index')}}"><i class="fa fa-home"></i> 主页 </a> </li>
+      <li><a><i class="fa fa-book"></i> 账户信息 <span class="fa fa-chevron-down"></span></a>
         <ul class="nav child_menu">
-          <li><a href="index.html">Dashboard</a></li>
-          <li><a href="index2.html">Dashboard2</a></li>
-          <li><a href="index3.html">Dashboard3</a></li>
+          <li><a href="{{route('users.edit',1)}}">修改信息</a></li>
+          <li><a href="{{route('users.password_edit',1)}}">修改密码</a></li>
+        </ul>
+      </li>
+
+      <li><a><i class="fa fa-male"></i> 个人资料 <span class="fa fa-chevron-down"></span></a>
+        <ul class="nav child_menu">
+          <li><a href="{{route('persons.person_edit',1)}}">个人身份认证</a></li>
+          <li><a href="{{route('persons.address_edit',1)}}">地址信息认证</a></li>
+          <li><a href="{{route('persons.bank_edit',1)}}">银行信息认证</a></li>
         </ul>
       </li>
     </ul>

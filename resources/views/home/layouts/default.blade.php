@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>@yield('title','Welcome') - 三代CRM</title>
+    <title>@yield('title','Welcome') - 三代CRM - 会员中心</title>
 
     @include('home.layouts._css')
 
@@ -27,7 +27,7 @@
             <!-- menu profile quick info -->
             <div class="profile clearfix">
               <div class="profile_pic">
-                <img src="bootcss/home/local/images/img.jpg" alt="..." class="img-circle profile_img">
+                <img src="{{asset('bootcss/home/local/images/img.jpg')}}" alt="..." class="img-circle profile_img">
               </div>
               <div class="profile_info">
                 <span>Welcome,</span>
