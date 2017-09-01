@@ -60,17 +60,24 @@
                 </div>
               </div>
               <div class="item form-group">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">电子邮箱 <span class="required">*</span>
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">姓名 <span class="required">*</span>
                 </label>
                 <div class="col-md-6 col-sm-6 col-xs-12">
-                  <input type="email" id="email" name="email" required="required" class="form-control col-md-7 col-xs-12" value="13203836651@163.com">
+                  <input id="name" class="form-control col-md-7 col-xs-12" data-validate-length-range="0,3" name="name" placeholder="(请输入您的真实姓名 例如:李达康)" required="required" type="text">
                 </div>
               </div>
               <div class="item form-group">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="telephone">电话 <span class="required">*</span>
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">电子邮箱 <span class="required">*</span>
                 </label>
                 <div class="col-md-6 col-sm-6 col-xs-12">
-                  <input type="tel" id="telephone" name="phone" required="required" data-validate-length-range="8,20" class="form-control col-md-7 col-xs-12">
+                  <input type="email" id="email" name="email" required="required" data-validate-length-range="8,20" class="form-control col-md-7 col-xs-12" placeholder="(请输入您的电子邮箱 例如:13203836651@163.com)">
+                </div>
+              </div>
+              <div class="item form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="phone">电话 <span class="required">*</span>
+                </label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                  <input type="phone" id="phone" name="phone" required="required" class="form-control col-md-7 col-xs-12" placeholder="(请输入您的电话 例如:13203836651@163.com)">
                 </div>
               </div>
               <div class="ln_solid"></div>

@@ -10,7 +10,9 @@ var validator = (function($){
     var message, tests, checkField, validate, mark, unmark, field, minmax, defaults,
         validateWords, lengthRange, lengthLimit, pattern, alertTxt, data,
         email_illegalChars = /[\(\)\<\>\,\;\:\\\/\"\[\]]/,
-        email_filter = /^.+@.+\..{2,6}$/;  // exmaple email "steve@s-i.photo"
+        email_filter = /^.+@.+\..{2,6}$/, // exmaple email "steve@s-i.photo"
+        phone_illegalChars = /[\(\)\<\>\,\;\:\\\/\"\[\]]/,
+        phone_filter = /^1[34578][0-9]{9}$/;  // exmaple phone "13203836651"
 
     /* general text messages
     */
@@ -26,6 +28,8 @@ var validator = (function($){
         number          : 'not a number',
         email           : 'email address is invalid',
         email_repeat    : 'emails do not match',
+        phone           : 'phone address is invalid',
+        phone_repeat    : 'phones do not match',
         password_repeat : 'passwords do not match',
         repeat          : 'no match',
         complete        : 'input is not complete',
@@ -65,6 +69,13 @@ var validator = (function($){
             if( b != a ){
                 // choose a specific message or a general one
                 alertTxt = message[data.type + '_repeat'] || message.no_match;
+                return false;
+            }
+            return true;
+        },
+        phone: function(a){
+            if ( !phone_filter.test( a ) || a.match( phone_illegalChars ) ){
+                alertTxt = a ? message.phone: message.empty;
                 return false;
             }
             return true;
