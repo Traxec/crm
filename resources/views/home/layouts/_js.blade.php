@@ -41,3 +41,6 @@
 
 <!-- Custom Theme Scripts -->
 <script src="{{asset('bootcss/home/build/js/custom.min.js')}}"></script>
+
+<!-- Dropzone.js -->
+<script src="{{asset('bootcss/home/vendors/dropzone/dist/min/dropzone.min.js')}}"></script>

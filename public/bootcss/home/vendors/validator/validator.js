@@ -11,8 +11,10 @@ var validator = (function($){
         validateWords, lengthRange, lengthLimit, pattern, alertTxt, data,
         email_illegalChars = /[\(\)\<\>\,\;\:\\\/\"\[\]]/,
         email_filter = /^.+@.+\..{2,6}$/, // exmaple email "steve@s-i.photo"
-        phone_illegalChars = /[\(\)\<\>\,\;\:\\\/\"\[\]]/,
+        phone_illegalChars = /[\(\)\<\>\,\;\:\\\/\"\[\]\@\.]/,
         phone_filter = /^1[34578][0-9]{9}$/;  // exmaple phone "13203836651"
+        IDCard_illegalChars = /[\(\)\<\>\,\;\:\\\/\"\[\]\@\.]/,
+        IDCard_filter = /^\d{6}(18|19|20)?\d{2}(0[1-9]|1[12])(0[1-9]|[12]\d|3[01])\d{3}(\d|X)$/i;  // exmaple IDCard "410181199103151000"
 
     /* general text messages
     */
@@ -28,8 +30,11 @@ var validator = (function($){
         number          : 'not a number',
         email           : 'email address is invalid',
         email_repeat    : 'emails do not match',
-        phone           : 'phone address is invalid',
+        phone           : 'phone is invalid',
         phone_repeat    : 'phones do not match',
+        IDCard          : 'IDCard is invalid',
+        IDCard_repeat   : 'IDCards do not match',
+        IDCard_check    : 'IDCard is invalid',
         password_repeat : 'passwords do not match',
         repeat          : 'no match',
         complete        : 'input is not complete',
@@ -70,6 +75,35 @@ var validator = (function($){
                 // choose a specific message or a general one
                 alertTxt = message[data.type + '_repeat'] || message.no_match;
                 return false;
+            }
+            return true;
+        },
+        IDCard: function(a){
+            if ( !IDCard_filter.test( a ) || a.match( IDCard_illegalChars ) ){
+                alertTxt = a ? message.IDCard: message.empty;
+                return false;
+            }
+            if(a.length == 18){
+              var code = a.split('');
+              //∑(ai×Wi)(mod 11)
+              //加权因子
+              var factor = [ 7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2 ];
+              //校验位
+              var parity = [ 1, 0, 'X', 9, 8, 7, 6, 5, 4, 3, 2 ];
+              var sum = 0;
+              var ai = 0;
+              var wi = 0;
+              for (var i = 0; i < 17; i++)
+              {
+                ai = code[i];
+                wi = factor[i];
+                sum += ai * wi;
+              }
+              var last = parity[sum % 11];
+              if(parity[sum % 11] != code[17]){
+                alertTxt = message.IDCard_check;
+                return false;
+              }
             }
             return true;
         },

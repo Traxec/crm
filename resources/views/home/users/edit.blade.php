@@ -56,14 +56,7 @@
                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="number">账户ID <span class="required">*</span>
                 </label>
                 <div class="col-md-6 col-sm-6 col-xs-12">
-                  <input type="number" id="number" name="number" required="required" data-validate-minmax="600000,699999" class="form-control col-md-7 col-xs-12" value="600001">
-                </div>
-              </div>
-              <div class="item form-group">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">姓名 <span class="required">*</span>
-                </label>
-                <div class="col-md-6 col-sm-6 col-xs-12">
-                  <input id="name" class="form-control col-md-7 col-xs-12" data-validate-length-range="0,3" name="name" placeholder="(请输入您的真实姓名 例如:李达康)" required="required" type="text">
+                  <input type="number" id="number" name="number" required="required" data-validate-minmax="600000,699999" class="form-control col-md-7 col-xs-12" value="600001" disabled>
                 </div>
               </div>
               <div class="item form-group">

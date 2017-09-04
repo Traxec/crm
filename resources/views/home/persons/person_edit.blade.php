@@ -46,31 +46,68 @@
           </div>
           <div class="x_content">
 
-            <form class="form-horizontal form-label-left" novalidate>
+            <form class="form-horizontal form-label-left" action="" method="post" enctype="multipart/form-data" novalidate>
 
               <p>---修改时请仔细核对您的信息，以免信息出错
               </p>
               <span class="section">修改个人信息</span>
 
               <div class="item form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="number">账户ID <span class="required">*</span>
+                </label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                  <input type="number" id="number" name="number" required="required" data-validate-minmax="600000,699999" class="form-control col-md-7 col-xs-12" value="600001" disabled>
+                </div>
+              </div>
+              <div class="item form-group">
                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">姓名 <span class="required">*</span>
                 </label>
                 <div class="col-md-6 col-sm-6 col-xs-12">
-                  <input id="name" class="form-control col-md-7 col-xs-12" data-validate-length-range="0,3" name="name" placeholder="请输入您的真实姓名 例如:李达康" required="required" type="text">
+                  <input id="name" class="form-control col-md-7 col-xs-12" data-validate-length-range="0,3" name="name" placeholder="(请输入您的真实姓名 例如:李达康)" required="required" type="text">
                 </div>
               </div>
               <div class="item form-group">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">电子邮箱 <span class="required">*</span>
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">性别 <span class="required">*</span>
                 </label>
                 <div class="col-md-6 col-sm-6 col-xs-12">
-                  <input type="email" id="email" name="email" required="required" data-validate-length-range="8,20" class="form-control col-md-7 col-xs-12" placeholder="(请输入您的电子邮箱 例如:13203836651@163.com)">
+                  <div id="gender" class="btn-group" data-toggle="buttons" style="height:34px">
+                    <label class="btn btn-default" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+                      <input type="radio" name="gender" value="male"> &nbsp; 男 &nbsp;
+                    </label>
+                    <label class="btn btn-primary" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+                      <input type="radio" name="gender" value="female"> &nbsp; 女 &nbsp;
+                    </label>
+                  </div>
                 </div>
               </div>
               <div class="item form-group">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="phone">电话 <span class="required">*</span>
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="phone">身份证 <span class="required">*</span>
                 </label>
                 <div class="col-md-6 col-sm-6 col-xs-12">
-                  <input type="phone" id="phone" name="phone" required="required" class="form-control col-md-7 col-xs-12" placeholder="(请输入您的电话 例如:13203836651@163.com)">
+                  <input type="IDCard" id="IDCard" name="IDCard" required="required" class="form-control col-md-7 col-xs-12" placeholder="(请输入您的电话 例如:13203836651@163.com)">
+                </div>
+              </div>
+              <div class="item form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="phone">身份证有效时间 <span class="required">*</span>
+                </label>
+                  <div class="col-md-4">
+                      <fieldset>
+                        <div class="control-group">
+                          <div class="controls">
+                            <div class="input-prepend input-group">
+                              <span class="add-on input-group-addon"><i class="glyphicon glyphicon-calendar fa fa-calendar"></i></span>
+                              <input type="text" style="width: 200px" name="reservation" id="reservation" class="form-control" value="01/01/2016 - 01/25/2016" />
+                            </div>
+                          </div>
+                        </div>
+                      </fieldset>
+                </div>
+              </div>
+              <div class="item form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="phone">身份证 <span class="required">*</span>
+                </label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                  <div action="form_upload.html" class="dropzone col-md-7 col-xs-12"></div>
                 </div>
               </div>
               <div class="ln_solid"></div>
