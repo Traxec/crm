@@ -46,7 +46,9 @@
           </div>
           <div class="x_content">
 
-            <form class="form-horizontal form-label-left" action="" method="post" enctype="multipart/form-data" novalidate>
+            <form class="form-horizontal form-label-left" action="{{Route('persons.update',1)}}" method="post" >
+              {{ method_field('PUT') }}
+              {{ csrf_field() }}
 
               <p>---修改时请仔细核对您的信息，以免信息出错
               </p>
@@ -91,24 +93,23 @@
                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="phone">身份证有效时间 <span class="required">*</span>
                 </label>
                   <div class="col-md-4">
-                      <fieldset>
-                        <div class="control-group">
-                          <div class="controls">
-                            <div class="input-prepend input-group">
-                              <span class="add-on input-group-addon"><i class="glyphicon glyphicon-calendar fa fa-calendar"></i></span>
-                              <input type="text" style="width: 200px" name="reservation" id="reservation" class="form-control" value="01/01/2016 - 01/25/2016" />
-                            </div>
+                    <fieldset>
+                      <div class="control-group">
+                        <div class="controls">
+                          <div class="input-prepend input-group">
+                            <span class="add-on input-group-addon"><i class="glyphicon glyphicon-calendar fa fa-calendar"></i></span>
+                            <input type="text" style="width: 200px" name="reservation" id="reservation" class="form-control" value="01/01/2016 - 01/25/2016" />
                           </div>
                         </div>
-                      </fieldset>
+                      </div>
+                    </fieldset>
                 </div>
               </div>
               <div class="item form-group">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="phone">身份证 <span class="required">*</span>
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="phone">身份证<span class="required">*</span>
                 </label>
-                <div class="col-md-6 col-sm-6 col-xs-12">
-                  <div action="form_upload.html" class="dropzone col-md-7 col-xs-12"></div>
-                </div>
+                <div class="dropz dropzone"></div>
+
               </div>
               <div class="ln_solid"></div>
               <div class="form-group">
@@ -123,4 +124,34 @@
       </div>
     </div>
   </div>
+
+<!-- jQuery -->
+<script src="{{asset('bootcss/home/vendors/jquery/dist/jquery.min.js')}}"></script>
+<!-- Dropzone.js -->
+<script src="{{asset('bootcss/home/vendors/dropzone/dist/dropzone.js')}}"></script>
+
+<script>
+    $(".dropz").dropzone({
+        url: "{{Route('persons.update',1)}}",
+    });
+    Dropzone.options.dropz= {
+      // Prevent Dropzone from auto discovering this element:
+      // Dropzone.options.dropz= false;
+      // This is useful when you want to create the
+      // Dropzone programmatically later
+
+      // Disable auto discover for all elements:
+      // Dropzone.autoDiscover = false;
+
+      createImageThumbnails: "false",
+      paramName: "file", // The name that will be used to transfer the file
+      maxFilesize: 0.001, // MB
+      accept: function(file, done) {
+        if (file.name == "justinbieber.jpg") {
+          done("Naha, you don't.");
+        }
+        else { done(); }
+      }
+    };
+</script>
 @endsection

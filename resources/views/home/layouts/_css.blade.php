@@ -14,6 +14,9 @@
 <!-- bootstrap-daterangepicker -->
 <link href="{{asset('bootcss/home/vendors/bootstrap-daterangepicker/daterangepicker.css')}}" rel="stylesheet">
 
+{{-- Dropzone.css --}}
+<link rel="stylesheet" href="{{asset('bootcss/home/vendors/dropzone/dist/dropzone.css')}}">
+
 <!-- Custom Theme Style -->
 <link href="{{asset('bootcss/home/build/css/custom.min.css')}}" rel="stylesheet">
 

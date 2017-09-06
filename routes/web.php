@@ -34,15 +34,16 @@ Route::get('users/{user}/password_edit','Home\UsersController@password_edit')->n
 //----------------------------账户信息结束----------------------------------\
 
 //----------------------------个人资料开始----------------------------------\
-Route::get('persons/{user}/person_edit','Home\PersonsController@person_edit')->name('persons.person_edit');
-Route::get('persons/{user}/address_edit','Home\PersonsController@address_edit')->name('persons.address_edit');
-Route::get('persons/{user}/bank_edit','Home\PersonsController@bank_edit')->name('persons.bank_edit');
+Route::resource('persons/persons','Home\Persons\PersonsController');
+// Route::post('persons/persons/upload','Home\Persons\PersonsController@post_upload');
+Route::resource('persons/address','Home\Persons\AddressController');
+Route::resource('persons/banks','Home\Persons\BanksController');
 //----------------------------个人资料结束----------------------------------\
 
 //----------------------------资金管理开始----------------------------------\
-Route::get('capitals/create','Home\CapitalsController@create')->name('capitals.create');
-Route::get('capitals','Home\CapitalsController@index')->name('capitals.index');
-Route::get('capitals/{capital}','Home\CapitalsController@show')->name('capitals.show');
+// Route::get('capitals/create','Home\CapitalsController@create')->name('capitals.create');
+// Route::get('capitals','Home\CapitalsController@index')->name('capitals.index');
+// Route::get('capitals/{capital}','Home\CapitalsController@show')->name('capitals.show');
 //----------------------------资金管理结束----------------------------------\
 
 /*

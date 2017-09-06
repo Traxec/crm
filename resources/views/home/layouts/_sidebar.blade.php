@@ -13,9 +13,9 @@
 
       <li><a><i class="fa fa-male"></i> 个人资料 <span class="fa fa-chevron-down"></span></a>
         <ul class="nav child_menu">
-          <li><a href="{{route('persons.person_edit',1)}}">个人身份认证</a></li>
-          <li><a href="{{route('persons.address_edit',1)}}">地址信息认证</a></li>
-          <li><a href="{{route('persons.bank_edit',1)}}">银行信息认证</a></li>
+          <li><a href="{{route('persons.edit',1)}}">个人身份认证</a></li>
+          <li><a href="{{route('address.edit',1)}}">地址信息认证</a></li>
+          <li><a href="{{route('banks.edit',1)}}">银行信息认证</a></li>
         </ul>
       </li>
     </ul>
